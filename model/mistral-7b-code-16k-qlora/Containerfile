@@ -1,0 +1,3 @@
+FROM quay.io/ai-lab/mistral-7b-code-16k-qlora:latest
+
+RUN chmod 755 /model/model.file

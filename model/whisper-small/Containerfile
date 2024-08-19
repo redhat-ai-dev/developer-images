@@ -1,0 +1,13 @@
+FROM registry.access.redhat.com/ubi9/ubi-micro:9.4-9
+
+# Can be substituted using the --build-arg defined above
+ARG MODEL_URL=https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin
+
+# By default the Model Server container image uses the AI Model stored in the model/model.file file.
+WORKDIR /model
+
+ADD $MODEL_URL /model/model.file
+
+RUN chmod 755 /model/model.file
+
+USER 1000

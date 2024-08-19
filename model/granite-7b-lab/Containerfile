@@ -1,0 +1,3 @@
+FROM quay.io/ai-lab/granite-7b-lab:latest
+
+RUN chmod 755 /model/model.file
