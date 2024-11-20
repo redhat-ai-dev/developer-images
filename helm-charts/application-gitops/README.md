@@ -1,5 +1,7 @@
 # AI Software Template Helm Chart - Application GitOps Python Script
 
+**NOTE**: This image built around this Python script is deprecated.  No replacement image is planned.  Instead a GitOps Bash script running from the OCP build image is used. 
+
 The python script is responsible to create the application repository related with the deployment of the ai software template deployment. More details about the ai-software-templates helm chart can be found [here](https://github.com/redhat-ai-dev/ai-lab-helm-charts/blob/main/charts/ai-software-templates/chatbot/0.1.0/README.md).
 
 The image is uploaded to `quay.io/redhat-ai-dev/helm-chart-application-gitops`
