@@ -25,7 +25,14 @@ jobs:
       env:
         ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
+        BASE_DIR=$(dirname $0)
+
         for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
+            dir="$(dirname "${file}")"
+            echo "Change detected in $dir ..."
+            cd $dir
+            echo "Running 'docker build' in $dir ..."
+            docker build .
+            cd $BASE_DIR
         done
     
