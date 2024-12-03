@@ -10,7 +10,7 @@
   ],
   "timezone": "America/Toronto",
   "schedule": [
-    "0 0 * * 0"
+    "0 0 1,15 * *"
   ],
   "vulnerabilityAlerts": {
     "enabled": true
