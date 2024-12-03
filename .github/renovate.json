@@ -9,6 +9,7 @@
     "mergeConfidence:all-badges"
   ],
   "timezone": "America/Toronto",
+  "description": "Run on the 1st and 15th of each month after midnight",
   "schedule": [
     "* 0 1,15 * *"
   ],
