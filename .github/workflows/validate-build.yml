@@ -2,7 +2,7 @@ name: Validate Images
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main, devtools/build-push-ci ]
 
 # Declare default permissions as read only.
 permissions: read-all
