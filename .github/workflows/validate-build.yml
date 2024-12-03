@@ -32,7 +32,11 @@ jobs:
             echo "Change detected in $dir ..."
             cd $dir
             echo "Running 'docker build' in $dir ..."
-            docker build .
+            if [ -f "Containerfile" ]; then
+                docker build -f Containerfile .
+            else
+                docker build -f Dockerfile .
+            fi
             cd $BASE_DIR
         done
     
