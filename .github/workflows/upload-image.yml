@@ -2,9 +2,8 @@ name: Push Images
 
 on:
   push:
-    branches: [ main, test/build-push-ci ]
+    branches: [ main ]
 
-# Declare default permissions as read only.
 permissions: read-all
 
 jobs:
