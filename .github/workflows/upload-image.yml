@@ -45,11 +45,12 @@ jobs:
             source config.env
             echo "Running 'docker build' in $dir ..."
             if [ -f "Containerfile" ]; then
-                docker build -t "${IMAGE_NAME}":"${IMAGE_TAG}" -f Containerfile .
+                docker build -t "${IMAGE_NAME}":temp -f Containerfile .
             else
-                docker build -t "${IMAGE_NAME}":"${IMAGE_TAG}" -f Dockerfile .
+                docker build -t "${IMAGE_NAME}":temp -f Dockerfile .
             fi
-            docker push "${IMAGE_NAME}":"${IMAGE_TAG}"
+            docker tag "${IMAGE_NAME}":temp "${IMAGE_NAME}":"${IMAGE_TAG}" && docker push "${IMAGE_NAME}":"${IMAGE_TAG}"
+            docker tag "${IMAGE_NAME}":temp "${IMAGE_NAME}":"${GITHUB_SHA}" && docker push "${IMAGE_NAME}":"${GITHUB_SHA}"
             cd $BASE_DIR
         done
 

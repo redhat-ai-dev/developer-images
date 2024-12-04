@@ -37,11 +37,10 @@ jobs:
             fi
             echo "Running 'docker build' in $dir ..."
             if [ -f "Containerfile" ]; then
-                docker build -t temp:temp -f Containerfile .
+                docker build -f Containerfile .
             else
-                docker build -t temp:temp -f Dockerfile .
+                docker build -f Dockerfile .
             fi
-            docker inspect --format='{{index .RepoDigests 0}}' temp:temp
             cd $BASE_DIR
         done
     
