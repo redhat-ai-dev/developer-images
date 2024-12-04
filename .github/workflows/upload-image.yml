@@ -39,7 +39,7 @@ jobs:
             echo "Change detected in $dir ..."
             cd $dir
             if [ ! -f config.env ]; then
-                echo "No config.env file present in changed directory, skipping push ..."
+                echo "No config.env file present in changed directory, skipping ..."
                 continue
             fi
             source config.env

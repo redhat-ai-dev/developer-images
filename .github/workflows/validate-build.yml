@@ -31,12 +31,17 @@ jobs:
             dir="$(dirname "${file}")"
             echo "Change detected in $dir ..."
             cd $dir
+            if [ ! -f config.env ]; then
+                echo "No config.env file present in changed directory, skipping ..."
+                continue
+            fi
             echo "Running 'docker build' in $dir ..."
             if [ -f "Containerfile" ]; then
-                docker build -f Containerfile .
+                docker build -t temp:temp -f Containerfile .
             else
-                docker build -f Dockerfile .
+                docker build -t temp:temp -f Dockerfile .
             fi
+            docker inspect --format='{{index .RepoDigests 0}}' temp:temp
             cd $BASE_DIR
         done
     
