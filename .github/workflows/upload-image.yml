@@ -42,6 +42,7 @@ jobs:
                 echo "No config.env file present in changed directory, skipping push ..."
                 continue
             fi
+            source config.env
             echo "Running 'docker build' in $dir ..."
             if [ -f "Containerfile" ]; then
                 docker build -t "${IMAGE_NAME}":"${IMAGE_TAG}" -f Containerfile .
