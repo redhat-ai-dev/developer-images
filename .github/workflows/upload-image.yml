@@ -1,4 +1,4 @@
-name: Validate Images
+name: Push Images
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ permissions: read-all
 
 jobs:
   build:
-    name: Validate Updated Images
+    name: Push Updated Images
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
@@ -17,11 +17,18 @@ jobs:
       with:
         fetch-depth: 0
     
+    - name: Login to Quay.io
+      uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
+      with:
+        registry: quay.io
+        username: ${{ secrets.QUAY_USERNAME }}
+        password: ${{ secrets.QUAY_PASSWORD }}
+
     - name: Get changed files
       id: changed-files
       uses: tj-actions/changed-files@v45
 
-    - name: Build Changed Images
+    - name: Push Changed Images
       env:
         ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
@@ -31,12 +38,18 @@ jobs:
             dir="$(dirname "${file}")"
             echo "Change detected in $dir ..."
             cd $dir
+            if [ ! -f config.env ]; then
+                echo "No config.env file present in changed directory, skipping push ..."
+                continue
+            fi
             echo "Running 'docker build' in $dir ..."
             if [ -f "Containerfile" ]; then
-                docker build -f Containerfile .
+                docker build -t "${IMAGE_NAME}":"${IMAGE_TAG}" -f Containerfile .
             else
-                docker build -f Dockerfile .
+                docker build -t "${IMAGE_NAME}":"${IMAGE_TAG}" -f Dockerfile .
             fi
+            docker push "${IMAGE_NAME}":"${IMAGE_TAG}"
             cd $BASE_DIR
         done
-    
+
+   
