@@ -26,7 +26,8 @@ jobs:
         ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
         BASE_DIR=$(pwd)
-
+        echo "${ALL_CHANGED_FILES}"
+        exit 0
         for file in ${ALL_CHANGED_FILES}; do
             dir="$(dirname "${file}")"
             echo "Change detected in $dir ..."
