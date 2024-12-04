@@ -1,7 +1,7 @@
 name: Push Images
 
 on:
-  pull_request:
+  push:
     branches: [ main, test/build-push-ci ]
 
 # Declare default permissions as read only.
