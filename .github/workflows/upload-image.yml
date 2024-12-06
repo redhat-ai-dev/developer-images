@@ -39,6 +39,7 @@ jobs:
             cd $dir
             if [ ! -f config.env ]; then
                 echo "No config.env file present in changed directory, skipping ..."
+                cd $BASE_DIR
                 continue
             fi
             source config.env
