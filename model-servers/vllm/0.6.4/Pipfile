@@ -27,7 +27,7 @@ py-cpuinfo = "~=9.0.0"
 pydantic = "~=2.7.1"
 pynvml = "==11.5.0"
 ray = "~=2.21.0"
-requests = "~=2.31.0"
+requests = "~=2.32.2"
 sentencepiece = "~=0.2.0"
 tiktoken = "==0.6.0" #  Required for DBRX tokenizer - Fixed by vllm 0.4.2
 torch = {version = "==2.3.0+cu121", index = "pytorch"}
