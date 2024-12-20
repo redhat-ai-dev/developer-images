@@ -95,7 +95,7 @@ triton==3.1.0; platform_system == 'Linux' and platform_machine == 'x86_64'
 typer==0.12.3; python_version >= '3.7'
 typing-extensions==4.12.2; python_version >= '3.8'
 ujson==5.9.0; python_version >= '3.8'
-urllib3==2.2.1; python_version >= '3.8'
+urllib3==2.2.2; python_version >= '3.8'
 uvicorn[standard]==0.29.0; python_version >= '3.8'
 uvloop==0.19.0
 vllm==0.6.4; python_version >= '3.9'
