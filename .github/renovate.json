@@ -6,7 +6,8 @@
     ":docker",
     ":gitSignOff",
     "helpers:pinGitHubActionDigests",
-    "mergeConfidence:all-badges"
+    "mergeConfidence:all-badges",
+    ":separateMajorReleases"
   ],
   "timezone": "America/Toronto",
   "description": "Run on the 1st and 15th of each month after midnight",
@@ -18,5 +19,19 @@
   },
   "osvVulnerabilityAlerts": true,
   "prHourlyLimit": 10,
-  "prConcurrentLimit": 10
+  "prConcurrentLimit": 10,
+  "packageRules": [
+      {
+        "matchManagers": ["github-actions"],
+        "groupName": "github-actions"
+      },
+      {
+        "matchManagers": ["pep621", "pep723", "pip-compile", "pip_requirements", "pip_setup", "pipenv", "poetry", "pyenv", "runtime-version", "setup-cfg"],
+        "groupName": "python"
+      },
+      {
+        "matchManagers": ["dockerfile"],
+        "groupName": "container-images"
+      }
+  ]
 }
