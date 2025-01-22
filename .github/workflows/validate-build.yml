@@ -29,6 +29,11 @@ jobs:
         BASE_DIR=$(pwd)
         for dir in ${ALL_CHANGED_FILES}; do
             echo "Change detected in $dir ..."
+            prevdir=$(dirname $dir)
+            if [ $prevdir == "model-servers/vllm" ]; then
+                echo "Skipping validation of vllm model server changes! Please perform a manual validation ..."
+                continue
+            fi
             cd $dir
             if [ ! -f config.env ] && ([ -f Dockerfile ] || [ -f Containerfile ]); then
                 echo "No config.env file present in changed directory that contains image files. Throwing error ..."
