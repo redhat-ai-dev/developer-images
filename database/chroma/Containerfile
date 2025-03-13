@@ -1,2 +1,2 @@
-FROM chromadb/chroma:0.5.5
+FROM chromadb/chroma:0.5.23
 RUN chgrp -R 0 /chroma && chmod -R g=u /chroma

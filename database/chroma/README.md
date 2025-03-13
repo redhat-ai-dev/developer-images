@@ -5,3 +5,7 @@ The Chroma database Containerfile is a simple wrapper that gives group permissio
 ## Quay Repository
 
 This image is uploaded to the quay repository `quay.io/repository/redhat-ai-dev/chroma`.
+
+## Versioning
+
+The version of Chroma used in this Container should match the dependency version located in the [sample application](https://github.com/redhat-ai-dev/ai-lab-samples/blob/main/rag/requirements.txt#L3).
