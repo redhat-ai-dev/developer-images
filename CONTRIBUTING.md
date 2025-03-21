@@ -25,4 +25,4 @@ For most files stored in this repository it is sufficient to edit them as you se
 
 For **[models/detr-resnet-101](./models/detr-resnet-101/)** you will first need to run `make download-model-facebook-detr-resnet-101` to pull in and convert the necessary information.
 
-For **[model-servers/vllm/*](./model-servers/vllm/)** you will need to build and push these images yourself as they are currently skipped in the CI.
+For **[model-servers/vllm/*](./model-servers/vllm/)** and **[models/detr-resnet-101](./models/detr-resnet-101/)** you will need to build and push these images yourself as they are currently skipped in the CI.

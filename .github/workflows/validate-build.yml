@@ -15,7 +15,6 @@ jobs:
       uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
       with:
         fetch-depth: 0
-        lfs: true
     
     - name: Get changed files
       id: changed-files
@@ -33,6 +32,10 @@ jobs:
             prevdir=$(dirname $dir)
             if [ $prevdir == "model-servers/vllm" ]; then
                 echo "Skipping validation of vllm model server changes! Please perform a manual validation ..."
+                continue
+            fi
+            if [ $dir == "models/detr-resnet-101" ]; then
+                echo "Skipping detr-resnet-101 due to size constraints. Please perform a manual validation ..."
                 continue
             fi
             cd $dir
