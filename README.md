@@ -1,4 +1,5 @@
-# developer-images
-Repository catalog of the Containerfiles/Dockerfiles for the developer images
+# Developer Images
 
-When onboarding new Container/Dockerfiles please ensure a `config.env` file is present in the directory with `IMAGE_NAME` and `IMAGE_TAG` variables.
+This repository is a catalog of the Containerfiles and/or Dockerfiles used in the building of images stored in [quay.io/redhat-ai-dev](https://quay.io/organization/redhat-ai-dev).
+
+For information related to onboarding new images, or maintaining current images, please see [our contributing guidelines](./CONTRIBUTING.MD).
