@@ -30,7 +30,7 @@ ray = "~=2.21.0"
 requests = "~=2.31.0"
 sentencepiece = "~=0.2.0"
 tiktoken = "==0.6.0" #  Required for DBRX tokenizer - Fixed by vllm 0.4.2
-torch = {version = "==2.3.0+cu121", index = "pytorch"}
+torch = {version = "==2.4.0+cu121", index = "pytorch"}
 tokenizers = "~=0.19.1"
 transformers = "~=4.40.2"
 triton = "==2.3.0"
