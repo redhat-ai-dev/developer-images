@@ -73,7 +73,7 @@ pynvml==11.5.0; python_version >= '3.6'
 python-dotenv==1.0.1
 python-multipart==0.0.9; python_version >= '3.8'
 pyyaml==6.0.1; python_version >= '3.6'
-ray==2.21.0; python_version >= '3.8'
+ray==2.43.0; python_version >= '3.8'
 referencing==0.35.1; python_version >= '3.8'
 regex==2024.5.10; python_version >= '3.8'
 requests==2.31.0; python_version >= '3.7'
