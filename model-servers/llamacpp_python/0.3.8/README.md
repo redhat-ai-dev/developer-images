@@ -7,5 +7,5 @@ The llama-cpp-python model server is adapted from [ai-lab-recipes](https://githu
 To build the llama-cpp-python model server from this directory:
 
 ```bash
-podman build -t quay.io/redhat-ai-dev/llamacpp_python:0.3.8 -f base/Containerfile  .
+podman build -t quay.io/redhat-ai-dev/llamacpp_python:0.3.8  .
 ```
