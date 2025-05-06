@@ -18,11 +18,3 @@ To avoid the `config.env` file from being committed to the image itself, you sho
 ```
 config.env
 ```
-
-## Maintaining Current Images
-
-For most files stored in this repository it is sufficient to edit them as you see fit and the GitHub Action CI will take care of the rest. However, in all cases, you should verify the image builds successfully before opening a Pull Request.
-
-For **[models/detr-resnet-101](./models/detr-resnet-101/)** you will first need to run `make download-model-facebook-detr-resnet-101` to pull in and convert the necessary information. This content is not checked into Git because the size is too large.
-
-For **[model-servers/vllm/*](./model-servers/vllm/)** and **[models/detr-resnet-101](./models/detr-resnet-101/)** you will need to build and push these images yourself as they are currently skipped in the CI.

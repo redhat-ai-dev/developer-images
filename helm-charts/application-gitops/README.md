@@ -1,4 +1,6 @@
 # AI Software Template Helm Chart - Application GitOps Python Script
+> [!WARNING]
+> This image and its contents are deprecated and will no longer receive updates.
 
 **NOTE**: This image built around this Python script is deprecated.  No replacement image is planned.  Instead a GitOps Bash script running from the OCP build image is used. 
 

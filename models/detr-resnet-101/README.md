@@ -1,16 +1,18 @@
-# Init Container with detr-resnet-101 Model 
+# Detr-Resnet-101 Model 
 
-The detr-resnet-101 model image is for use as the init container for object detection template.
+The Detr-Resnet-101 model image is for use as the `init container` for the [Object Detection Template](https://github.com/redhat-ai-dev/ai-lab-template/tree/main/templates/object-detection).
 
 
-# Download Model
+# Downloading The Model
 
-To build detr-restnet-101 image, need to follow the [steps](https://github.com/containers/ai-lab-recipes/blob/main/models/README.md) to download facebook-detr-resnet-101 and store under `./detr-resnet-101`.
+In order to build the Detr-Resnet-101 image, you need to first download the model. The [Makefile](../../Makefile) located at the root of this repository has a command designed to handle that. You can run `make download-model-facebook-detr-resnet-101` to pull in and convert the necessary content. The downloaded files will *not* be checked into Git as they are too large.
 
-## Build Model Image
+## Maintenance
 
-To build the detr-resnet-101 model image from this directory:
+The [Containerfile](./Containerfile) for this image is a small adaptation from [github.com/ai-lab-recipes/models/Containerfile](https://github.com/containers/ai-lab-recipes/blob/main/models/Containerfile). 
 
-```bash
-podman build -t quay.io/redhat-ai-dev/detr-resnet-101:latest --platform=linux/amd64 -f ./Containerfile
-```
+When performing updates/maintenance on this image the most important part is updating the contents. This is done by running the `make` command listed above. After you have pulled the newest contents you are free to build the image locally or push it and let the CI build.
+
+## Quay Repository
+
+Uploaded to `quay.io/redhat-ai-dev/detr-resnet-101`.
