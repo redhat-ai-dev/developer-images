@@ -37,14 +37,24 @@ jobs:
         for dir in ${ALL_CHANGED_FILES}; do
             echo "Change detected in $dir ..."
             prevdir=$(dirname $dir)
-            if [ $prevdir == "model-servers/vllm" ]; then
-                echo "Skipping uploading of vllm model server changes! Please perform a manual upload ..."
+            skip_model_server=false
+            model_server_set=("model-servers/vllm" "model-servers/llamacpp_python")
+            for model_server in "${model_server_set[@]}"; do
+                if [[ "$prevdir" == *"$model_server"* ]]; then
+                    echo "Skipping $dir due to size constraints. Please perform a manual upload ..."
+                    skip_model_server=true
+                    break
+                fi
+            done
+            if [ "$skip_model_server" = true ]; then
                 continue
             fi
-            if [ $dir == "models/detr-resnet-101" ]; then
-                echo "Skipping detr-resnet-101 due to size constraints. Please perform a manual upload ..."
-                continue
+            model_set=("models/detr-resnet-101" "models/granite-3.1-8b-instruct-gguf" "models/mistral-7b-instruct-v0.2")
+            if printf "%s\n" "${model_set[@]}" | grep -q -x "$dir"; then
+              echo "Skipping $dir due to size constraints. Please perform a manual upload ..."
+              continue
             fi
+
             cd $dir
             if [ ! -f config.env ]; then
                 echo "No config.env file present in changed directory, skipping ..."
