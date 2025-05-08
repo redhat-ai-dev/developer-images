@@ -43,7 +43,7 @@ jobs:
                 continue
             fi
             model_set=("models/detr-resnet-101" "models/granite-3.1-8b-instruct-gguf" "models/mistral-7b-instruct-v0.2")
-            if printf "%s\n" "${model_set[@]}" | grep -q -x "$prevdir"; then
+            if printf "%s\n" "${model_set[@]}" | grep -q -x "$dir"; then
               echo "Skipping $dir due to size constraints. Please perform a manual validation ..."
               continue
             fi
