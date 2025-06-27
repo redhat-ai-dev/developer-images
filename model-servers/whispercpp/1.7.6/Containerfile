@@ -8,7 +8,7 @@ RUN dnf install -y git cmake make gcc-toolset-13-gcc gcc-toolset-13-gcc-c++
 
 RUN source /opt/rh/gcc-toolset-13/enable && \
  mkdir whisper && cd whisper && git clone https://github.com/ggml-org/whisper.cpp . && \
-    git checkout origin/master && \
+    git checkout v1.7.6 && \
     make && \
     cp -r build /app/build && \
     cp samples/jfk.wav /app/jfk.wav && \
