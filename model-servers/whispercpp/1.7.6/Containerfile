@@ -1,0 +1,35 @@
+FROM registry.access.redhat.com/ubi9/ubi:latest as builder
+
+WORKDIR /app
+# RUN dnf install -y git cmake make gcc gcc-c++
+RUN dnf install -y git cmake make gcc-toolset-13-gcc gcc-toolset-13-gcc-c++
+
+# SHELL ["/bin/bash", "-c"]
+
+RUN source /opt/rh/gcc-toolset-13/enable && \
+ mkdir whisper && cd whisper && git clone https://github.com/ggml-org/whisper.cpp . && \
+    git checkout v1.7.6 && \
+    make && \
+    cp -r build /app/build && \
+    cp samples/jfk.wav /app/jfk.wav && \
+    cd ../ && rm -rf whisper
+
+FROM registry.access.redhat.com/ubi9/ubi:latest
+WORKDIR /app
+COPY --from=builder /app /app
+
+# https://github.com/wader/static-ffmpeg
+# https://hub.docker.com/r/mwader/static-ffmpeg/
+COPY --from=mwader/static-ffmpeg:6.1.1 /ffmpeg /bin/
+COPY --from=mwader/static-ffmpeg:6.1.1 /ffprobe /bin/
+
+COPY --chown=0:0 --chmod=755 src /app
+
+ENV LD_LIBRARY_PATH=/app/build/src:/app/build/ggml/src
+
+RUN chown -R 1001:0 /app && chmod -R g+w /app
+
+USER 1001
+
+ENV AUDIO_FILE=/app/jfk.wav
+ENTRYPOINT ["sh", "run.sh"]
