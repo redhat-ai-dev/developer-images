@@ -1,7 +1,6 @@
 # whisper.cpp model-server
 
-This is a mirror of https://github.com/ggml-org/whisper.cpp/tree/v1.7.6
-Please head over to whisper.cpp documentation for more info
+This whisper 1.7.6 Containerfile has been adapted from https://github.com/containers/ai-lab-recipes/blob/main/model_servers/whispercpp/base/Containerfile while basing on the whisper 1.7.6 updates in https://github.com/ggml-org/whisper.cpp/tree/v1.7.6
 
 ## Build Model Image
 
