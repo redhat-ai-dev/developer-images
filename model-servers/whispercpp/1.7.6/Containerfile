@@ -1,10 +1,7 @@
 FROM registry.access.redhat.com/ubi9/ubi:latest as builder
 
 WORKDIR /app
-# RUN dnf install -y git cmake make gcc gcc-c++
 RUN dnf install -y git cmake make gcc-toolset-13-gcc gcc-toolset-13-gcc-c++
-
-# SHELL ["/bin/bash", "-c"]
 
 RUN source /opt/rh/gcc-toolset-13/enable && \
  mkdir whisper && cd whisper && git clone https://github.com/ggml-org/whisper.cpp . && \
