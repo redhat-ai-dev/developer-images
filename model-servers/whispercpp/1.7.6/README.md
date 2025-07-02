@@ -1,6 +1,6 @@
 # whisper.cpp model-server
 
-This is a mirror of https://github.com/redhat-ai-dev/whisper.cpp/tree/1.7.6 
+This is a mirror of https://github.com/ggml-org/whisper.cpp/tree/v1.7.6
 Please head over to whisper.cpp documentation for more info
 
 ## Build Model Image
