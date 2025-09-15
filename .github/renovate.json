@@ -29,5 +29,6 @@
         "matchManagers": ["pep621", "pep723", "pip-compile", "pip_requirements", "pip_setup", "pipenv", "poetry", "pyenv", "runtime-version", "setup-cfg"],
         "groupName": "python"
       }
-  ]
+  ],
+  "labels": ["renovatebot"]
 }
