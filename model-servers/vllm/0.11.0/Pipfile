@@ -1,0 +1,48 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "https://download.pytorch.org/whl/cu126/"
+verify_ssl = false
+name = "pytorch"
+
+[packages]
+cmake = "~=3.29.3"
+einops= "~=0.8.0"
+fastapi = "~=0.115.0"
+filelock = "~=3.14.0"
+lm-format-enforcer = "==0.11.3"
+ninja = "~=1.11.1.1"
+numpy = "~=1.26.4"
+nvidia-ml-py = "~=12.560.30"
+openai = "~=1.99.1"
+outlines = "~=0.1.11"
+pip = "~=24.0"
+prometheus_client = "~=0.20.0"
+prometheus-fastapi-instrumentator = "~=7.0.0"
+psutil = "~=5.9.8"
+py-cpuinfo = "~=9.0.0"
+pydantic = "~=2.11.7"
+pynvml = "==11.5.0"
+ray = "~=2.48.0"
+requests = "~=2.31.0"
+sentencepiece = "~=0.2.0"
+tiktoken = "~=0.6.0"
+torch = {version = "==2.8.0+cu126", index = "pytorch"} # Required by vllm 0.11.0 - CUDA 12.1 no longer supported
+tokenizers = "~=0.21.1"
+transformers = "~=4.55.2"
+triton = "==3.2.0"
+typing_extensions = "~=4.12.2"
+uvicorn = {extras = ["standard"], version = "~=0.29.0"}
+vllm = "==0.11.0"
+vllm-flash-attn = "==2.6.2"
+vllm-nccl-cu12 = "==2.18.1.0.4.0"
+wheel = "~=0.43.0"
+xformers = "==0.0.32.post1" # Required by vllm 0.11.0 with PyTorch 2.8.0
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
