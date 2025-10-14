@@ -27,7 +27,7 @@ py-cpuinfo = "~=9.0.0"
 pydantic = "~=2.11.7"
 pynvml = "==11.5.0"
 ray = "~=2.48.0"
-requests = "~=2.31.0"
+requests = "~=2.32.4"
 sentencepiece = "~=0.2.0"
 tiktoken = "~=0.6.0"
 torch = {version = "==2.8.0+cu126", index = "pytorch"} # Required by vllm 0.11.0 - CUDA 12.1 no longer supported
